@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p nombres
+
+for letra in {A..Z}
+do
+  curl http://www.sitiosargentina.com.ar/Nombres/masculinos/$letra.htm |
+    parse_list.rb > nombres/$letra
+done
